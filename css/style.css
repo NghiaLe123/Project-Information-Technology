@@ -96,9 +96,10 @@
 }
 
 .top-content img {
-	width: 116px;
-	height: 55px;
+	width: 105px;
+	height: 60px;
 	float: left;
+	padding-top: 15px;
 }
 
 #top-title {
