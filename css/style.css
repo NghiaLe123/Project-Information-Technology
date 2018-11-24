@@ -1,0 +1,112 @@
+.navbar-primary {
+	background-color:#0158A3;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 250px;
+	z-index: 8;
+	overflow: hidden;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+.navbar-primary.collapsed {
+	width: 60px;
+}
+
+.navbar-primary.collapsed {
+	font-size: 22px;
+	padding-top: 10px;
+}
+
+.navbar-primary.collapsed .nav-label, .navbar-primary.collapsed #student-name {
+	display: none;
+}
+
+
+.btn-expand-collapse {
+	position: absolute;
+	display: block;
+	left: 0px;
+	bottom: 0;
+	width: 100%;
+	padding: 8px 0;
+	border-top: solid 1px white;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+
+.btn-expand-collapse:hover,
+.btn-expand-collapse:focus {
+	background-color: #004F93;
+	color: white;
+}
+
+.btn-expand-collapse:active {
+	background-color: #004F93;
+}
+
+#student-name, #student-id, #logout-icon {
+	color: white;
+	font-size: 18px;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+#user-info {
+	border-bottom: 2px solid #B4B4B4;
+	line-height: 30px;
+	bottom: 20px;
+}
+
+.navbar-primary-menu,
+.navbar-primary-menu li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 60px;
+}
+
+.navbar-primary-menu li a {
+	display: block;
+	padding-left: 18px;
+	text-align: left;
+	border-bottom: solid 0.5px #B4B4B4;
+	color: white;
+	text-decoration: none;
+}
+
+.navbar-primary-menu li a:hover {
+	background-color: #004F93;
+	text-decoration: none;
+	color: white;
+}
+
+.main-content {
+	margin-top: 60px;
+	margin-left: 250px;
+	padding: 20px;
+}
+
+.top-content {
+	margin-left: 250px;
+}
+
+.top-content img {
+	width: 116px;
+	height: 55px;
+	float: left;
+}
+
+#top-title {
+	padding-top: 17px;
+	padding-left: 25%;
+	color: #0158A3;
+}
+
+.collapsed+.main-content {
+	margin-left: 60px;
+}
