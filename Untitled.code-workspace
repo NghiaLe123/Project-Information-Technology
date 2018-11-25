@@ -1,14 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "/Users/leondk/Documents/GitHub/Deadline-T2-22.10"
-		},
-		{
 			"path": "."
 		},
 		{
-			"path": "/Volumes/StudyDocuments/php/login-form/login"
+			"path": "/Users/leondk/Documents/GitHub/Deadline-T2-22.10/admin"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Project-Information-Technology"
+	}
 }
