@@ -223,12 +223,14 @@
                     Đăng Kí Đề Tài
                 </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Modal Đăng Kí Đề Tài-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 170px;">Đăng Kí Đề Tài</h5>
+                                <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 170px;">Đăng Kí Đề
+                                    Tài</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -237,8 +239,8 @@
                                 <div class="panel panel-default">
                                     <div class="col-md-6 nopadding">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="maDT" name="maDT[]"
-                                                value="" placeholder="Mã Đề Tài">
+                                            <input type="text" class="form-control" id="maDT" name="maDT[]" value=""
+                                                placeholder="Mã Đề Tài">
                                         </div>
                                     </div>
                                     <div class="col-md-6 nopadding">
@@ -268,11 +270,12 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
+
             </div>
-            <!-- Kết Quả Đăng Kí-->
+
 
         </div>
     </div>
@@ -286,19 +289,22 @@
 
 <script>
     var room = 1;
+
     function education_fields() {
         room++;
         var objTo = document.getElementById('education_fields');
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + room);
         var rdiv = 'removeclass' + room;
-        
+
         divtest.innerHTML =
-            '<div class="col-lg-6 nopadding"><div class="form-group"><input type="text" class="form-control" id="mssv3" name="mssv3[]" value="" placeholder="Mã Số Sinh Viên '+room+'"><span id="clicks"></span></div></div></div><div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <button class="btn btn-danger" type="button" onclick="remove_education_fields(' +
+            '<div class="col-lg-6 nopadding"><div class="form-group"><input type="text" class="form-control" id="mssv3" name="mssv3[]" value="" placeholder="Mã Số Sinh Viên ' +
+            room +
+            '"><span id="clicks"></span></div></div></div><div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <button class="btn btn-danger" type="button" onclick="remove_education_fields(' +
             room + ');"> <i class="fas fa-minus"></i> </button></div></div></div></div><div class="clear"></div>';
-        
+
         objTo.appendChild(divtest);
-        
+
     }
 
     function remove_education_fields(rid) {
