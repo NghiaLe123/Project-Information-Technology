@@ -25,14 +25,31 @@
         $(document).ready(function () {
             $("#showHomepage").click(function () {
                 $(".home-page").show();
-                $(".table").hide();
+                $("#table-signup").hide();
                 $(".form-table").hide();
                 $(".title-notfi").hide();
+                $(".result").hide();
             });
 
             $("#showSignInProject").click(function () {
-                $(".table").show();
+                $("#table-signup").show();
+                $("#signinProjectTable").show();
+                $("#btn-modal").show();
                 $(".title-notfi").show();
+                $(".home-page").hide();
+                $("#user_form").hide();
+                $(".result").hide();
+            });
+
+            $("#showSiginResult").click(function () {
+                $(".result").show();
+                $("#title-result").show();
+                $("#table-result").show();
+                $(".table").show();
+                $("#table-signup").hide();
+                $("#signinProjectTable").hide();
+                $("#btn-modal").hide();
+                $(".title-notfi").hide();
                 $(".home-page").hide();
                 $("#user_form").hide();
             });
@@ -96,7 +113,7 @@
                     <h3>ĐĂNG KÍ ĐỒ ÁN ĐỢT <span id="id-">1</span></h3>
                 </div>
                 <br>
-                <table class="table" style="display: none;">
+                <table class="table" id="table-signup"style="display: none;">
                     <thead>
                         <tr>
                             <th scope="col">Mã Đề Tài</th>
@@ -168,7 +185,7 @@
 
                 <!-- Test Đăng kí đề tài khác-->
 
-                <table class="table">
+                <table class="table-a" id="signinProjectTable" style="display: none;">
                     <thead>
                         <tr>
                             <th scope="col">Mã Đề Tài</th>
@@ -185,41 +202,42 @@
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td> 1</td>
-                            <td> 2</td>
+                            <td> Đề Tài 1</td>
+                            <td> Loại 1</td>
                             <td> 3</td>
                             <td> 4</td>
-                            <td> 5</td>
-                            <td> 6</td>
-                            <td> 7</td>
-                            <td> 8</td>
+                            <td> 5/5</td>
+                            <td> 06/01/2019</td>
+                            <td> 07/02/2019</td>
+                            <td> 1</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td> 1</td>
-                            <td> 2</td>
+                            <td> Đề Tài 2</td>
+                            <td> Loại 2</td>
                             <td> 3</td>
                             <td> 4</td>
-                            <td> 5</td>
-                            <td> 6</td>
-                            <td> 7</td>
-                            <td> 8</td>
+                            <td> 5/5</td>
+                            <td> 06/01/2019</td>
+                            <td> 07/02/2019</td>
+                            <td> 1</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td> 1</td>
-                            <td> 2</td>
+                            <td> Đề Tài 3</td>
+                            <td> Loại 1</td>
                             <td> 3</td>
                             <td> 4</td>
-                            <td> 5</td>
-                            <td> 6</td>
-                            <td> 7</td>
-                            <td> 8</td>
+                            <td> 5/5</td>
+                            <td> 06/01/2019</td>
+                            <td> 07/02/2019</td>
+                            <td> 1</td>
                         </tr>
                     </tbody>
                 </table>
+                <br>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModal" style="display: none;">
                     Đăng Kí Đề Tài
                 </button>
 
@@ -265,8 +283,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <button type="button" class="btn btn-primary">Xác Nhận</button>
                                 </div>
                             </div>
                         </div>

@@ -86,12 +86,27 @@ html, body {
 .fa-plus-circle {
 	color: green;
 }
-.fa-trash-alt, .fa-redo-alt {
+
+/*Kết Quả Đăng Kí*/
+#btn-del-signup {
+	background-color: rgb(37, 111, 248);;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	height: 40px;
+}
+.fa-trash-alt {
 	margin-left: 10px;
+	color: red;
+}
+#btn-del-signup:hover {
+	background-color: #004F93;
 }
 
+
 /*Responsive*/
-@media (max-width: 1600px) {
+@media (min-width: 1600px) {
+	/*Header*/
 	#top-title {
 		padding-left: 15%;
 		font-size: 35px;
@@ -101,6 +116,7 @@ html, body {
 		padding-left: 10px;
 	}
 
+	/*Menu Left*/
 	.sidenav a {
 		font-size: 19px;
 	}
@@ -109,7 +125,47 @@ html, body {
 		margin-left: 100px;
 	}
 
+	/*Table*/
 	.fa-plus-circle {
 		margin-left: 50px;
 	}
 }
+
+@media (min-width: 1330px) {
+	/*Header*/
+	.top-content img {
+		width: 92px;
+		height: 60px;
+	}
+
+	#top-title {
+		padding-left: 12%;
+		font-size: 32px;
+		width: 65%;
+	}
+
+	/*Menu Left*/
+	.sidenav {
+		width: 200px;
+	}
+
+	.sidenav a {
+		font-size: 18px;
+	}
+
+	/*Main-contain*/
+	.main-content {
+		margin-left: 120px
+	}
+	.table-a {
+		width: 110%;
+	}
+	.table-a th {
+		font-size: 14px;
+		padding: 10px 10px;
+	}
+	.table-a tr {
+		text-align: center;
+	}
+}
+
