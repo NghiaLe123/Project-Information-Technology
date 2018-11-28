@@ -1,12 +1,5 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "/Users/leondk/Documents/GitHub/Deadline-T2-22.10/admin"
-		}
-	],
+	"folders": [],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "Project-Information-Technology"
 	}
