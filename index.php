@@ -148,6 +148,7 @@
                                 <span>Sinh viên 1</span>
                                 <a href="#"><i class="fas fa-minus-circle"></i></a>
                                 -->
+                                <p id="result-return"></p>
                                 <a href="#"><i class="fas fa-plus-circle" data-toggle="modal" data-target="#addModal"></i></a>
                             </td>
                             <td>2/3</td>
@@ -176,10 +177,16 @@
                     <div class="modal-body">
                         <form action="index.php" method="post">
                             <p class="input-group-addon">Nhập Mã Số Sinh Viên</p>
-                            <input type="text" name="search" id="search" placeholder="Mssv" class="form-control" />
-                            <input type="submit" value="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" name="search_text" id="search_text" placeholder="mã số sinh viên" class="form-control" />
+                                </div>
+                            </div>
+                            <br />
+                            <div id="add-list">Choose student list here</div>
+                            <br>
+                            <div id="result">Result table Here</div>
                         </form>
-                        <div id="result"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -190,5 +197,30 @@
         </div>
     </div>
 </body>
-
 </html>
+
+<script>
+$(document).ready(function(){
+ function load_data(query) {
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data) {
+    //$('#result').html(data);
+    $('#add-list').html(data[0]);
+   }
+  });
+ }
+ $('#search_text').keyup(function() {
+  var search = $(this).val();
+  if(search != '') {
+   load_data(search);
+  }
+  else {
+   load_data();
+   $('#result');
+  }
+ });
+});
+</script>
