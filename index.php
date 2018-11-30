@@ -148,14 +148,25 @@
                                 <span>Sinh viên 1</span>
                                 <a href="#"><i class="fas fa-minus-circle"></i></a>
                                 -->
-                                <p id="result-return"></p>
+                                <p id="result-return">
+                                    <?php 
+                                        $output = '';
+                                        $query = "
+                                        SELECT * FROM sinh_vien";
+                                        $result = mysqli_query($con, $query);
+                                        $row = mysqli_fetch_array($result);
+                                        $output .= ''.$row["maSV"].'-'.$row["tenSV"];
+                                        echo $output;
+                                    ?>
+                                </p>
                                 <a href="#"><i class="fas fa-plus-circle" data-toggle="modal" data-target="#addModal"></i></a>
                             </td>
                             <td>2/3</td>
                             <td>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
-                                <span>/</span>
-                                <a href="#"><i class="fas fa-redo-alt"></i></a>
+                                <button type="button" name="check" class="btn btn_remove"><i class="fas fa-check"></i></button>
+                                <span>/<span>
+                                <button type="button" name="remove" class="btn btn_remove"><i class="fas fa-undo-alt"></i></button>
+                                <!-- <a href="#" class="btn_remove"><i class="fas fa-redo-alt"></i></a> -->
                             </td>
                         </tr>
                     </tbody>
@@ -180,6 +191,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <input type="text" name="search_text" id="search_text" placeholder="mã số sinh viên" class="form-control" />
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                             <div id="result"></div>
@@ -208,6 +220,7 @@
                 }
             });
         }
+
         $('#search_text').keyup(function() {
             var search = $(this).val();
             if(search != '') {
@@ -216,6 +229,10 @@
                 load_data();
                 $('#result');
             }
+        });
+
+        $(document).on('click', '.btn_remove', function(){  
+           $('#result-return').remove();  
         });
     });
 </script>
