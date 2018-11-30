@@ -182,10 +182,7 @@
                                     <input type="text" name="search_text" id="search_text" placeholder="mã số sinh viên" class="form-control" />
                                 </div>
                             </div>
-                            <br />
-                            <div id="add-list">Choose student list here</div>
-                            <br>
-                            <div id="result">Result table Here</div>
+                            <div id="result"></div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -200,27 +197,25 @@
 </html>
 
 <script>
-$(document).ready(function(){
- function load_data(query) {
-  $.ajax({
-   url:"fetch.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data) {
-    //$('#result').html(data);
-    $('#add-list').html(data[0]);
-   }
-  });
- }
- $('#search_text').keyup(function() {
-  var search = $(this).val();
-  if(search != '') {
-   load_data(search);
-  }
-  else {
-   load_data();
-   $('#result');
-  }
- });
-});
+    $(document).ready(function(){
+        function load_data(query) {
+            $.ajax({
+                url:"fetch.php",
+                method:"POST",
+                data:{query:query},
+                success:function(data) {
+                    $('#result').html(data);
+                }
+            });
+        }
+        $('#search_text').keyup(function() {
+            var search = $(this).val();
+            if(search != '') {
+                load_data(search);
+            }else {
+                load_data();
+                $('#result');
+            }
+        });
+    });
 </script>

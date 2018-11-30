@@ -77,9 +77,6 @@ html, body {
 }
 
 /*Đăng kí đề tài*/
-.table {
-	width: 110%;
-}
 .fa-minus-circle {
 	color: red;
 }
@@ -121,7 +118,7 @@ html, body {
 		font-size: 19px;
 	}
 	
-	.home-page, .table {
+	.home-page, #table-signup {
 		margin-left: 100px;
 	}
 
@@ -157,15 +154,17 @@ html, body {
 	.main-content {
 		margin-left: 120px
 	}
+	/*
 	.table-a {
 		width: 110%;
 	}
 	.table-a th {
 		font-size: 14px;
-		padding: 10px 10px;
+
 	}
 	.table-a tr {
 		text-align: center;
 	}
+	*/
 }
 
