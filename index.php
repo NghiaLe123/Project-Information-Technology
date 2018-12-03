@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                             <div id="add-list"></div>
-                            <button type="button" class="btn btn-primary" style="float: right;">Thêm</button>
+                            <button type="button" onclick="store()" class="btn btn-primary" style="float: right;">Thêm</button>
                             <div id="result"></div>
                             
                         </form>
@@ -200,7 +200,9 @@
 </html>
 
 <script>
+    var search;
     $(document).ready(function(){
+        
         function load_data(query) {
             $.ajax({
                 url:"fetch.php",
@@ -209,13 +211,14 @@
                 data:{query:query},
                 success:function(data) {
                     var table = data['table'];
-                    var row = data['row']
+                    var row = data['row'];
                     $('#result').html(table + '<tr><td>'+row["maSV"]+'</td><td>'+ row["tenSV"] + '</td><td>' + row["maLop"] + '</td></tr></table>');
                 }
             });
         }
+
         $('#search_text').keyup(function() {
-            var search = $(this).val();
+            search = $(this).val();
             if(search != '') {
                 load_data(search);
                 $(this).val() = "";
@@ -225,4 +228,19 @@
             }
         });
     });
+
+    function store() {
+        var query = search;
+        $.ajax({
+            url:"fetch.php",
+            method:"POST",
+            dataType: 'json',     
+            data:{query:query},
+            success:function(data) {
+                var row = data['row'];
+                var add = document.getElementById("add-list");
+                add.innerHTML += '' + row["tenSV"] + ' - ' + row["maSV"] + '</br>';
+            }
+        });
+    }
 </script>

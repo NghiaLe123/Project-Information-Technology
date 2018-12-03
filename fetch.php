@@ -2,9 +2,7 @@
   //fetch.php
   header('Content-Type: text/html; charset=UTF-8');
   $connect = mysqli_connect("localhost", "root", "", "quanlydoan");
-  $output = '';
-  $output1 = '';
-  $output2 = array();
+  $output = array();
   if(isset($_POST["query"])) {
   $search = mysqli_real_escape_string($connect, $_POST["query"]);
   $query = "
@@ -14,7 +12,7 @@
 
   $result = mysqli_query($connect, $query);
   if(mysqli_num_rows($result) > 0) {
-    $output2['table'] = '
+    $output['table'] = '
     <div class="table-responsive">
       <table class="table" id="table-modal" style="margin-left: 0px;">
         <tr>
@@ -24,11 +22,9 @@
         </tr>
     ';
     $row = mysqli_fetch_array($result);
-    $output2['row'] = $row;
-    //echo $output1;
-    //echo $output;
+    $output['row'] = $row;
 
-    echo json_encode($output2);
+    echo json_encode($output);
     $connect->close();
   }
 ?>
