@@ -1,3 +1,7 @@
+p:empty {
+	background: #ef4613;
+}
+
 html, body {
 	height: 100%;
 	margin: 0;

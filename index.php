@@ -70,6 +70,7 @@
         $('#myModal').on('shown.bs.modal', function () {
             $('#myInput').trigger('focus')
         })
+        
     </script>
 </head>
 
@@ -148,8 +149,9 @@
                                 <span>Sinh viên 1</span>
                                 <a href="#"><i class="fas fa-minus-circle"></i></a>
                                 -->
-                                <p id="result-return">
-                                    <?php 
+                                <p id="result-return"></p>
+                                    <!--
+                                    ?php 
                                         $output = '';
                                         $query = "
                                         SELECT * FROM sinh_vien";
@@ -158,12 +160,13 @@
                                         $output .= ''.$row["maSV"].'-'.$row["tenSV"];
                                         echo $output;
                                     ?>
-                                </p>
+                                    -->
+                                
                                 <a href="#"><i class="fas fa-plus-circle" data-toggle="modal" data-target="#addModal"></i></a>
                             </td>
                             <td>2/3</td>
                             <td>
-                                <button type="button" name="check" class="btn btn_remove"><i class="fas fa-check"></i></button>
+                                <button type="button" name="check" class="btn btn_check"><i class="fas fa-check"></i></button>
                                 <span>/<span>
                                 <button type="button" name="remove" class="btn btn_remove"><i class="fas fa-undo-alt"></i></button>
                                 <!-- <a href="#" class="btn_remove"><i class="fas fa-redo-alt"></i></a> -->
