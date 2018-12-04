@@ -70,7 +70,6 @@
         $('#myModal').on('shown.bs.modal', function () {
             $('#myInput').trigger('focus')
         })
-        
     </script>
 </head>
 
@@ -150,26 +149,13 @@
                                 <a href="#"><i class="fas fa-minus-circle"></i></a>
                                 -->
                                 <p id="result-return"></p>
-                                    <!--
-                                    ?php 
-                                        $output = '';
-                                        $query = "
-                                        SELECT * FROM sinh_vien";
-                                        $result = mysqli_query($con, $query);
-                                        $row = mysqli_fetch_array($result);
-                                        $output .= ''.$row["maSV"].'-'.$row["tenSV"];
-                                        echo $output;
-                                    ?>
-                                    -->
-                                
                                 <a href="#"><i class="fas fa-plus-circle" data-toggle="modal" data-target="#addModal"></i></a>
                             </td>
                             <td>2/3</td>
                             <td>
-                                <button type="button" name="check" class="btn btn_check"><i class="fas fa-check"></i></button>
-                                <span>/<span>
-                                <button type="button" name="remove" class="btn btn_remove"><i class="fas fa-undo-alt"></i></button>
-                                <!-- <a href="#" class="btn_remove"><i class="fas fa-redo-alt"></i></a> -->
+                                <a href="#"><i class="fas fa-trash-alt"></i></a>
+                                <span>/</span>
+                                <a href="#"><i class="fas fa-redo-alt"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -194,10 +180,12 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <input type="text" name="search_text" id="search_text" placeholder="mã số sinh viên" class="form-control" />
-                                    <button type="button" class="btn btn-secondary"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
+                            <div id="add-list"></div>
+                            <button type="button" onclick="store()" class="btn btn-primary" style="float: right;">Thêm</button>
                             <div id="result"></div>
+                            
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -212,30 +200,48 @@
 </html>
 
 <script>
+    var search;
     $(document).ready(function(){
+        
         function load_data(query) {
             $.ajax({
                 url:"fetch.php",
                 method:"POST",
+                dataType: 'json',     
                 data:{query:query},
                 success:function(data) {
-                    $('#result').html(data);
+                    var table = data['table'];
+                    var row = data['row'];
+                    $('#result').html(table + '<tr><td>'+row["maSV"]+'</td><td>'+ row["tenSV"] + '</td><td>' + row["maLop"] + '</td></tr></table>');
                 }
             });
         }
 
         $('#search_text').keyup(function() {
-            var search = $(this).val();
+            search = $(this).val();
             if(search != '') {
                 load_data(search);
+                $(this).val() = "";
             }else {
-                load_data();
+                load_data('');
                 $('#result');
             }
         });
-
-        $(document).on('click', '.btn_remove', function(){  
-           $('#result-return').remove();  
-        });
     });
+
+    function store() {
+        var query = search;
+        $.ajax({
+            url:"fetch.php",
+            method:"POST",
+            dataType: 'json',     
+            data:{query:query},
+            success:function(data) {
+                var row = data['row'];
+                var add = document.getElementById("add-list");
+                add.innerHTML += '<div class="memory">' + row["tenSV"] + ' - ' + row["maSV"] + '</div>';
+            }
+        });
+    }
+    
 </script>
