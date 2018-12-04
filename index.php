@@ -183,14 +183,14 @@
                                 </div>
                             </div>
                             <div id="add-list"></div>
-                            <button type="button" onclick="store()" class="btn btn-primary" style="float: right;">Thêm</button>
+                            <button type="button" onclick="memory()" class="btn btn-primary" style="float: right;">Thêm</button>
                             <div id="result"></div>
                             
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-primary">Thêm Mã Số Sinh Viên</button>
+                        <button type="button" onclick="store()" class="btn btn-primary">Thêm Mã Số Sinh Viên</button>
                     </div>
                 </div>
             </div>
@@ -201,6 +201,8 @@
 
 <script>
     var search;
+    var index = 0;
+    var mang_sinh_vien =  new Array();
     $(document).ready(function(){
         
         function load_data(query) {
@@ -226,10 +228,11 @@
                 load_data('');
                 $('#result');
             }
-        });
+        }); 
     });
 
-    function store() {
+    /*
+    function memory() {
         var query = search;
         $.ajax({
             url:"fetch.php",
@@ -239,9 +242,16 @@
             success:function(data) {
                 var row = data['row'];
                 var add = document.getElementById("add-list");
-                add.innerHTML += '<div class="memory">' + row["tenSV"] + ' - ' + row["maSV"] + '</div>';
+                add.innerHTML += '<span class="name">' + row["tenSV"] + '</span> - <span class="id">' + row["maSV"] + '</span></br>';
+                mang_sinh_vien[index] = row;
+                index++;
             }
         });
     }
-    
+
+    function store(){
+
+    }*/
+
+
 </script>
