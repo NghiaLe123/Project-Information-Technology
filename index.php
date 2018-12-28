@@ -1,6 +1,6 @@
 <?php
     $con = mysqli_connect("localhost","root","","quanlydoan");
-
+    mysqli_set_charset($con,'utf8');
     // Check connection
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -139,19 +139,26 @@
                             <th scope="col">Thao Tác</th>
                         </tr>
                     </thead>
+<?php
+    $result = mysqli_query($con,"SELECT * FROM de_tai ORDER BY id ASC");
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($data = mysqli_fetch_array($result)) {
+
+?>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Đề tài 1</td>
+                            <th scope="row"><?php echo $data['id']; ?></th>
+                            <td><?php echo $data['tenDT']; ?></td>
                             <td>
                                 <!--
                                 <span>Sinh viên 1</span>
                                 <a href="#"><i class="fas fa-minus-circle"></i></a>
                                 -->
                                 <p id="result-return"></p>
-                                <a href="#"><i class="fas fa-plus-circle" data-toggle="modal" data-target="#addModal"></i></a>
+                                <a href="#"><i class="fas fa-plus-circle addsv" data-toggle="modal" data-target="#addModal<?php echo $data['id']; ?>"></i></a>
                             </td>
-                            <td>2/3</td>
+                            <td>2/<?php echo $data['slSV']; ?></td>
                             <td>
                                 <a href="#"><i class="fas fa-trash-alt"></i></a>
                                 <span>/</span>
@@ -159,12 +166,14 @@
                             </td>
                         </tr>
                     </tbody>
+
+
                 </table>
             </div>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+        <div class="modal fade" id="addModal<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -183,7 +192,7 @@
                                 </div>
                             </div>
                             <div id="add-list"></div>
-                            <button type="button" onclick="memory()" class="btn btn-primary" style="float: right;">Thêm</button>
+                            <button type="button" class="btn btn-primary" style="float: right;" id="add<?php echo $data['id']; ?>">Thêm</button>
                             <div id="result"></div>
                             
                         </form>
@@ -195,6 +204,15 @@
                 </div>
             </div>
         </div>
+
+<?php
+
+
+            
+        }
+
+    }
+?>
     </div>
 </body>
 </html>
@@ -252,6 +270,9 @@
     function store(){
 
     }*/
+    $(document).on("click",".addsv",function(){
 
+        alert("hi");
+    });
 
 </script>
